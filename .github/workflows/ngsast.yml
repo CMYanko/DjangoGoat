@@ -35,7 +35,7 @@ jobs:
       - name: NextGen Static Analysis
         run: |
           pip install --upgrade setuptools wheel
-          pip install -r requirements.txt
+          pip install -r requirements_app.txt
           ${GITHUB_WORKSPACE}/sl analyze --wait --app djangogoat --tag app.group=VBD --tag branch=${{ github.head_ref || steps.extract_branch.outputs.branch }} --python -cpg $(pwd)
         env:
           SHIFTLEFT_ACCESS_TOKEN: ${{ secrets.SHIFTLEFT_ACCESS_TOKEN }}
